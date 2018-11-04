@@ -1,0 +1,7 @@
+*.pyc
+*.py[cod]
+*$py.class
+
+virtualenv/
+.vscode/
+db.sqlite3
