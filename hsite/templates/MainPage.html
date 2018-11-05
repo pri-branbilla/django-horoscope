@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>A culpa é das estrelas</title>
+    <!-- AJAX + jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+
+
+</head>
+
+<body style="background-color: #EED2EE">
+
+  <!-- barra de navegação do site -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #8B2252">
+        <div class="container">
+
+            <div class="navbar-header">
+                <div class="btn-group">
+                    <a class="btn btn-secondary dropdown-toggle" href="{% url 'Home' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Home
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'DescobrirSigno' %}">Descubra Seu Signo</a>
+                        <a class="dropdown-item" href="{% url 'TodosSignos' %}">Todos os Signos</a>    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+        </div>
+        <!-- corpo do site -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+           <div>
+                <div style="margin: auto; text-align: center;">
+                {% block content %}<h1>A culpa é das estrelas</h1>
+                <br><!-- Descrição geral da aplicação -->
+                <br><img src="http://img1.recadosonline.com/013/002.jpg" style="width: 300px; height: 300px;">
+                <br><br>
+                <p style="font-size: 14px">Bem vindo! Aqui você poderá conferir seu horóscopo diário de acordo com seu signo.</p>
+                <p>Não sabe seu signo? Através de sua data de nascimento (Dia e mês) é possível descobri-lo.</p>
+                <p>No menu de navegação, clique em "Descubra seu Signo". Você será redirecionado a uma página que irá solicitar sua data e fará os cálculos necessários. Depois disso, haverá o redirecionamento direto para a página do signo correspondente.</p>
+                {% endblock %}
+                </div>
+           </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+{% block javascript %}{% endblock %}
+
+   
+</body>
+
+</html>

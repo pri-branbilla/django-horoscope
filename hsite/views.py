@@ -7,18 +7,18 @@ def MainPage(request):
     return render(request, 'MainPage.html', {})
 
 def Contato(request):
-    return render(request, 'App/Contato.html', {})
+    return render(request, 'hsite/Contato.html', {})
 
 def MostrarTodosSelect(request, signo):
     select = True
     signos = Signos.objects.order_by('id')
-    return render(request, 'App/TodosSignos.html', {'sign2' : signo, 'signos' : signos, 'select' : select})
+    return render(request, 'hsite/TodosSignos.html', {'sign2' : signo, 'signos' : signos, 'select' : select})
 
 
 def MostrarTodos(request):
     select = False
     signos = Signos.objects.order_by('id')
-    return render(request, 'App/TodosSignos.html', {'signos' : signos})
+    return render(request, 'hsite/TodosSignos.html', {'signos' : signos})
     
 
 def DescobrirSigno(request):
@@ -87,4 +87,4 @@ def DescobrirSigno(request):
                 return MostrarTodosSelect(request, "Sagitário")
             else:
                 return MostrarTodosSelect(request, "Capricórnio")
-    return render(request, 'App/DescobrirSigno.html', {})
+    return render(request, 'hsite/DescobrirSigno.html', {})

@@ -1,0 +1,57 @@
+{% extends "MainPage.html" %}
+
+{% block javascript %}
+{% for signo in signos %}
+    {% if signo.nome == sign2 %}
+  <script type="text/javascript">
+    $('#sitebt').click(function(){
+      console.log("CHAMOU")
+      $.ajax({
+        url: $('#sitebt').val(),
+        method: 'GET',
+        success: function(data){
+          console.log(data)
+          $('#conteudo').html($(data).find('.lead').html());
+        }
+      });
+    }); 
+    
+  </script>
+  {% endif %}
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+  {% if not select %} <!-- Se não há a requisição de um signo em específico -->
+  {% for signo in signos %} <!-- Lista todos os signos -->
+  <div class="row" style="float: left; padding: 20px">
+  <div>
+    <div class="thumbnail">
+      <img src="{{ signo.img }}" style="width: 300px; height: 300px">
+      <div class="caption"><center><!-- Exibe nome e data de intervalo obtidos do banco de dados dos signos -->
+        <h4><b>{{ signo.nome }}</b> - {{ signo.data }}</h4>
+        <p><a href="../../../TodosSignos/{{ signo.nome }}" class="btn btn-danger" role="button">Ver detalhes</a></center>
+      </div>
+    </div>
+  </div>
+</div>
+ {% endfor %}
+ {% else %}<!-- Se há a requisição de um signo em específico -->
+ {% for signo in signos %}<!-- Lista todos os signos -->
+ {% if signo.nome == sign2 %}<!-- Verifica qual foi selecionado -->
+ <center><h1>{{ signo.nome }}</h1><!-- Exibe dados coletados do banco de dados -->
+ <br><img src="{{ signo.img }}">
+ <br>{{ signo.data }}
+ <br><br>{{ signo.descricao }}<br><br>
+ <br>
+ <!-- Botão para a exibição do horóscopo diário obtido do site UOL -->
+ <!--  -->
+ <button type="submit" id="sitebt" class="btn btn-danger" value="http://estilo.uol.com.br/horoscopo/{{ signo.nomelink }}/horoscopo-do-dia/">Ver Horóscopo Diário</button>
+   <br><div id="conteudo"></div>
+<!-- signo.nomelink é o atributo da classe signo referente ao nome no link do site UOL -->
+</p>
+</center>
+ {% endif %}
+ {% endfor %}
+{% endif %}
+{% endblock %}
