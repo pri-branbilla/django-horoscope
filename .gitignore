@@ -4,4 +4,3 @@
 
 virtualenv/
 .vscode/
-db.sqlite3
