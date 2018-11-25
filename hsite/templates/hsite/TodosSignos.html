@@ -5,7 +5,6 @@
     {% if signo.nome == sign2 %}
   <script type="text/javascript">
     $('#sitebt').click(function(){
-      console.log("CHAMOU")
       $.ajax({
         url: $('#sitebt').val(),
         method: 'GET',
@@ -42,10 +41,10 @@
  <center><h1>{{ signo.nome }}</h1><!-- Exibe dados coletados do banco de dados -->
  <br><img src="{{ signo.img }}">
  <br>{{ signo.data }}
- <br><br>{{ signo.descricao }}<br><br>
  <br>
  <!-- Botão para a exibição do horóscopo diário obtido do site UOL -->
  <!--  -->
+ {% csrf_token %}
  <button type="submit" id="sitebt" class="btn btn-danger" value="http://estilo.uol.com.br/horoscopo/{{ signo.nomelink }}/horoscopo-do-dia/">Ver Horóscopo Diário</button>
    <br><div id="conteudo"></div>
 <!-- signo.nomelink é o atributo da classe signo referente ao nome no link do site UOL -->
