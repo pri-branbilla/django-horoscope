@@ -1,6 +1,7 @@
 *.pyc
 *.py[cod]
 *$py.class
+db.sqlite3
 
 virtualenv/
 venv/
