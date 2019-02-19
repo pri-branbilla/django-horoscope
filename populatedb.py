@@ -4,7 +4,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'horoscopo.settings')
 import django
 django.setup()
 
-import random
 from hsite.models import Signos
 
 signos = [
@@ -82,9 +81,11 @@ signos = [
     },
 ]
 
+
 def populate():
     for signo in signos:
         signo = Signos.objects.get_or_create(nome=signo['nome'], data=signo['data'], img=signo['img'], nomelink=signo['nomelink'])[0]
+
 
 if __name__ == "__main__":
     print("populating db...")
